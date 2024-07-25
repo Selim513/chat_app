@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "981535270693",
+    "project_id": "chat-app-a7d6a",
+    "storage_bucket": "chat-app-a7d6a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981535270693:android:d35789c65453d0b09f1ccc",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFZ7hnR5Mne_kRYdxZ1HNnpEgQpl6w0Pk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981535270693:android:75148560e43652759f1ccc",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFZ7hnR5Mne_kRYdxZ1HNnpEgQpl6w0Pk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981535270693:android:a0f4531db17bf63a9f1ccc",
+        "android_client_info": {
+          "package_name": "com.example.selim"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFZ7hnR5Mne_kRYdxZ1HNnpEgQpl6w0Pk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
