@@ -2,8 +2,9 @@ import 'package:chat_app/core/Widgets/customElevatedButton.dart';
 import 'package:chat_app/core/Widgets/customShowDialog.dart';
 import 'package:chat_app/core/Widgets/customTextFormField.dart';
 import 'package:chat_app/core/Widgets/snackBarMessage.dart';
-import 'package:chat_app/core/auth/cubit.dart';
-import 'package:chat_app/core/auth/cubit_state.dart';
+import 'package:chat_app/core/cubit/auth/cubit.dart';
+import 'package:chat_app/core/cubit/auth/cubit_state.dart';
+import 'package:chat_app/core/cubit/chat_cubit/chat_cubit.dart';
 import 'package:chat_app/core/services/email_valid.dart';
 import 'package:chat_app/core/services/route.dart';
 import 'package:chat_app/core/utils/constant.dart';
@@ -31,6 +32,7 @@ class LoginView extends StatelessWidget {
             isLoadingShowing = false;
           }
 
+          BlocProvider.of<ChatCubit>(context).getMessages();
           snackBarSuccessMessage(context, state.SuccessMessage);
           GotoPushReplacement(const HomeView(), context);
           print(state.SuccessMessage);
