@@ -2,9 +2,10 @@ import 'package:chat_app/core/Widgets/customElevatedButton.dart';
 import 'package:chat_app/core/Widgets/customShowDialog.dart';
 import 'package:chat_app/core/Widgets/customTextFormField.dart';
 import 'package:chat_app/core/Widgets/snackBarMessage.dart';
-import 'package:chat_app/core/cubit/auth/cubit.dart';
-import 'package:chat_app/core/cubit/auth/cubit_state.dart';
-import 'package:chat_app/core/cubit/chat_cubit/chat_cubit.dart';
+import 'package:chat_app/core/auth_bloc/auth_bloc.dart';
+import 'package:chat_app/core/auth_bloc/auth_events.dart';
+import 'package:chat_app/core/auth_bloc/auth_state.dart';
+import 'package:chat_app/core/chat_cubit/chat_cubit.dart';
 import 'package:chat_app/core/services/email_valid.dart';
 import 'package:chat_app/core/services/route.dart';
 import 'package:chat_app/core/utils/constant.dart';
@@ -24,7 +25,7 @@ class LoginView extends StatelessWidget {
     bool isLoadingShowing = false;
     bool isVisible = true;
     var formKey = GlobalKey<FormState>();
-    return BlocListener<AuthCubit, AuthState>(
+    return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is LoginSuccessState) {
           if (isLoadingShowing) {
@@ -132,8 +133,9 @@ class LoginView extends StatelessWidget {
                         text: 'Sign in',
                         onpress: () {
                           if (formKey.currentState!.validate()) {
-                            context.read<AuthCubit>().loginAuth(
-                                passwordController.text, emailController.text);
+                            context.read<AuthBloc>().add(LoginEvent(
+                                email: emailController.text,
+                                password: passwordController.text));
 
                             // GotoPush(const RegisterView(), context);
                           }

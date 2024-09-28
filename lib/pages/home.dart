@@ -1,7 +1,7 @@
 import 'package:chat_app/core/Widgets/CustomChatMessageWidget.dart';
 import 'package:chat_app/core/Widgets/customTextField(message).dart';
-import 'package:chat_app/core/cubit/chat_cubit/chat_cubit.dart';
-import 'package:chat_app/core/cubit/chat_cubit/chat_cubit_state.dart';
+import 'package:chat_app/core/chat_cubit/chat_cubit.dart';
+import 'package:chat_app/core/chat_cubit/chat_cubit_state.dart';
 import 'package:chat_app/core/model/model_message.dart';
 import 'package:chat_app/core/utils/constant.dart';
 import 'package:chat_app/core/utils/fontStyle.dart';

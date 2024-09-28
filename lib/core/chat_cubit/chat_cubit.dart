@@ -1,4 +1,4 @@
-import 'package:chat_app/core/cubit/chat_cubit/chat_cubit_state.dart';
+import 'package:chat_app/core/chat_cubit/chat_cubit_state.dart';
 import 'package:chat_app/core/model/model_message.dart';
 import 'package:chat_app/core/utils/constant.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -26,11 +26,17 @@ class ChatCubit extends Cubit<ChatState> {
       (event) {
         List<Message> messageList = [];
         for (var doc in event.docs) {
-          print('===========> doc:${event.docs}');
           messageList.add(Message.fromJson(doc));
         }
         emit(ChatSuccessState(messages: messageList));
       },
     );
+  }
+
+  @override
+  void onChange(Change<ChatState> change) {
+    // TODO: implement onChange
+    super.onChange(change);
+    print(change);
   }
 }

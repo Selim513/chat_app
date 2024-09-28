@@ -2,8 +2,9 @@ import 'package:chat_app/core/Widgets/customElevatedButton.dart';
 import 'package:chat_app/core/Widgets/customShowDialog.dart';
 import 'package:chat_app/core/Widgets/customTextFormField.dart';
 import 'package:chat_app/core/Widgets/snackBarMessage.dart';
-import 'package:chat_app/core/cubit/auth/cubit.dart';
-import 'package:chat_app/core/cubit/auth/cubit_state.dart';
+import 'package:chat_app/core/auth_bloc/auth_bloc.dart';
+import 'package:chat_app/core/auth_bloc/auth_events.dart';
+import 'package:chat_app/core/auth_bloc/auth_state.dart';
 import 'package:chat_app/core/services/route.dart';
 import 'package:chat_app/core/utils/constant.dart';
 import 'package:chat_app/core/utils/fontStyle.dart';
@@ -20,7 +21,7 @@ class RegisterView extends StatelessWidget {
     var passwordController = TextEditingController();
     // var confirmPasswordController = TextEditingController();
     var formKey = GlobalKey<FormState>();
-    return BlocListener<AuthCubit, AuthState>(
+    return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is RegisterSuccessState) {
           snackBarSuccessMessage(context, state.SuccessMessage);
@@ -105,8 +106,10 @@ class RegisterView extends StatelessWidget {
                         text: 'Register',
                         onpress: () {
                           if (formKey.currentState!.validate()) {
-                            BlocProvider.of<AuthCubit>(context).registerAuth(
-                                passwordController.text, emailController.text);
+                            BlocProvider.of<AuthBloc>(context).add(
+                                RegisterEvent(
+                                    email: emailController.text,
+                                    password: passwordController.text));
                           }
                         },
                       )),

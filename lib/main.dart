@@ -1,5 +1,6 @@
-import 'package:chat_app/core/cubit/auth/cubit.dart';
-import 'package:chat_app/core/cubit/chat_cubit/chat_cubit.dart';
+import 'package:chat_app/bloc_observer.dart';
+import 'package:chat_app/core/auth_bloc/auth_bloc.dart';
+import 'package:chat_app/core/chat_cubit/chat_cubit.dart';
 import 'package:chat_app/firebase_options.dart';
 import 'package:chat_app/pages/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,6 +13,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  
   runApp(const MainApp());
   print('--------------------${FirebaseAuth.instance.currentUser?.uid}');
 }
@@ -24,7 +26,7 @@ class MainApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => AuthCubit(),
+          create: (context) => AuthBloc(),
         ),
         BlocProvider(
           create: (context) => ChatCubit(),
