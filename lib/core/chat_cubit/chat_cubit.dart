@@ -33,10 +33,4 @@ class ChatCubit extends Cubit<ChatState> {
     );
   }
 
-  @override
-  void onChange(Change<ChatState> change) {
-    // TODO: implement onChange
-    super.onChange(change);
-    print(change);
-  }
 }

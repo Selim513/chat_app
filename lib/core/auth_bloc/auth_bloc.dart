@@ -50,10 +50,4 @@ class AuthBloc extends Bloc<AuthEvents, AuthState> {
       }
     });
   }
-  @override
-  void onTransition(Transition<AuthEvents, AuthState> transition) {
-    // TODO: implement onTransition
-    super.onTransition(transition);
-    print(transition);
-  }
 }

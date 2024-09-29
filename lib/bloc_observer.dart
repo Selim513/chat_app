@@ -3,34 +3,37 @@ import 'package:flutter/material.dart';
 
 class MyBlocObserver extends BlocObserver {
   @override
-  void onEvent(Bloc bloc, Object? event) {
-    super.onEvent(bloc, event);
-    debugPrint('=====${bloc.toString()}==${event.toString()}');
-  }
-
-  @override
-  void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
-    // TODO: implement onError
-    super.onError(bloc, error, stackTrace);
-  }
-
-  @override
-  void onChange(BlocBase bloc, Change change) {
-    super.onChange(bloc, change);
-    // TODO: implement onChange
-    debugPrint('$bloc');
-  }
-
-  @override
-  void onTransition(Bloc bloc, Transition transition) {
-    super.onTransition(bloc, transition);
-    // TODO: implement onChange
-  }
-
-  @override
   void onCreate(BlocBase bloc) {
     // TODO: implement onCreate
     super.onCreate(bloc);
     debugPrint('$bloc');
+  }
+
+  @override
+  void onChange(BlocBase bloc, Change change) {
+    // TODO: implement onChange
+    super.onChange(bloc, change);
+    debugPrint('$change');
+  }
+
+  @override
+  void onClose(BlocBase bloc) {
+    // TODO: implement onClose
+    super.onClose(bloc);
+    debugPrint('$bloc');
+  }
+
+  @override
+  void onEvent(Bloc bloc, Object? event) {
+    // TODO: implement onEvent
+    super.onEvent(bloc, event);
+    debugPrint('$event');
+  }
+
+  @override
+  void onTransition(Bloc bloc, Transition transition) {
+    // TODO: implement onTransition
+    super.onTransition(bloc, transition);
+    debugPrint('$transition');
   }
 }
